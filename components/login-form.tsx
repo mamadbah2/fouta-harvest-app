@@ -5,15 +5,45 @@ import type React from "react"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  
+  const router = useRouter()
+
+  // Les identifiants qui fonctionnent
+  const validCredentials = [
+    { username: "admin", password: "admin123" },
+    { username: "user", password: "user123" },
+    { username: "demo", password: "demo123" },
+    { username: "bobo", password: "bah123" }
+  ]
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Logique de connexion à implémenter
-    console.log("Tentative de connexion avec:", { username, password })
+    setLoading(true)
+    setError("")
+    
+    // Simuler une requête d'authentification
+    setTimeout(() => {
+      const isValid = validCredentials.some(
+        cred => cred.username === username && cred.password === password
+      )
+      
+      if (isValid) {
+        // Rediriger vers la page parcelles au lieu du dashboard
+        router.push("/parcelles")
+      } else {
+        setError("Identifiants incorrects. Veuillez réessayer.")
+        setLoading(false)
+      }
+    }, 1000)
   }
 
   return (
@@ -27,6 +57,13 @@ export default function LoginForm() {
         </div>
       </div>
 
+      {error && (
+        <Alert variant="destructive" className="mb-4">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <Input
@@ -35,6 +72,7 @@ export default function LoginForm() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#114c3a] focus:border-transparent"
+            disabled={loading}
           />
         </div>
 
@@ -45,16 +83,23 @@ export default function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#114c3a] focus:border-transparent"
+            disabled={loading}
           />
         </div>
 
         <Button
           type="submit"
           className="w-full bg-[#114c3a] hover:bg-[#0d3c2d] text-white font-medium py-3 rounded-md transition-colors"
+          disabled={loading}
         >
-          Se Connecter
+          {loading ? "Connexion en cours..." : "Se Connecter"}
         </Button>
       </form>
+      
+      <div className="mt-4 text-center text-xs text-gray-500">
+        <p>Identifiants de démonstration:</p>
+        <p className="font-medium">Nom utilisateur: demo | Mot de passe: demo123</p>
+      </div>
     </div>
   )
 }
