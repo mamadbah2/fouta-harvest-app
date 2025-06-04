@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { Menu } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useAuth } from "@/contexts/auth-context"
 import {
   History,
   Calendar,
@@ -32,6 +33,7 @@ import {
 export default function SidebarMenu() {
   const [theme, setTheme] = useState("light")
   const [language, setLanguage] = useState("français")
+  const { user, logout } = useAuth()
 
   return (
     <Sheet>
@@ -45,17 +47,17 @@ export default function SidebarMenu() {
           {/* En-tête utilisateur */}
           <div className="flex items-center space-x-4 py-4">
             <div className="relative w-14 h-14 rounded-full overflow-hidden bg-[#114c3a]">
-              <Image src="/placeholder.svg?height=100&width=100" alt="Bobo Bah" fill className="object-cover" />
+              <Image src={user?.avatar || "/placeholder.svg?height=100&width=100"} alt={user?.fullName || "Utilisateur"} fill className="object-cover" />
             </div>
             <div>
-              <h3 className="font-bold text-lg">Bobo Bah</h3>
+              <h3 className="font-bold text-lg">{user?.fullName || "Utilisateur"}</h3>
               <div className="flex items-center text-sm text-gray-600">
                 <MapPin className="h-3 w-3 mr-1" />
                 <span>Dakar</span>
               </div>
               <div className="flex items-center text-sm text-[#114c3a]">
                 <User className="h-3 w-3 mr-1" />
-                <span>Agriculteur</span>
+                <span>{user?.role || "Utilisateur"}</span>
               </div>
             </div>
           </div>
@@ -141,6 +143,7 @@ export default function SidebarMenu() {
             <Button
               variant="outline"
               className="w-full border-[#114c3a] text-[#114c3a] hover:bg-[#114c3a] hover:text-white"
+              onClick={logout}
             >
               <LogOut className="h-4 w-4 mr-2" />
               Se déconnecter

@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import { useAuth } from "@/contexts/auth-context"
+import { useToast } from "@/hooks/use-toast"
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
@@ -16,34 +18,32 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false)
   
   const router = useRouter()
+  const { login } = useAuth()
+  const { toast } = useToast()
 
-  // Les identifiants qui fonctionnent
-  const validCredentials = [
-    { username: "admin", password: "admin123" },
-    { username: "user", password: "user123" },
-    { username: "demo", password: "demo123" },
-    { username: "bobo", password: "bah123" }
-  ]
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError("")
     
-    // Simuler une requête d'authentification
-    setTimeout(() => {
-      const isValid = validCredentials.some(
-        cred => cred.username === username && cred.password === password
-      )
-      
-      if (isValid) {
+    try {
+      const isAuthenticated = await login(username, password)
+      if (isAuthenticated) {
+        toast({
+          title: "Connexion réussie",
+          description: "Bienvenue sur Fouta Harvest",
+          variant: "default",
+        })
         // Rediriger vers la page parcelles au lieu du dashboard
         router.push("/parcelles")
       } else {
         setError("Identifiants incorrects. Veuillez réessayer.")
         setLoading(false)
       }
-    }, 1000)
+    } catch (error) {
+      setError("Une erreur est survenue. Veuillez réessayer.")
+      setLoading(false)
+    }
   }
 
   return (

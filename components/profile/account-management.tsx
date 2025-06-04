@@ -3,6 +3,7 @@
 import { LogOut, UserX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { useAuth } from "@/contexts/auth-context"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,11 +18,7 @@ import {
 
 export default function AccountManagement() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-
-  const handleLogout = () => {
-    // Logique de déconnexion à implémenter
-    console.log("Déconnexion")
-  }
+  const { logout } = useAuth()
 
   const handleDeleteAccount = () => {
     // Logique de suppression de compte à implémenter
@@ -40,7 +37,7 @@ export default function AccountManagement() {
         <Button
           variant="outline"
           className="w-full border-[#114c3a] text-[#114c3a] hover:bg-[#f0f9f5]"
-          onClick={handleLogout}
+          onClick={logout}
         >
           <LogOut className="h-4 w-4 mr-2" />
           Déconnexion
