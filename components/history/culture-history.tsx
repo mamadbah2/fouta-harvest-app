@@ -161,66 +161,66 @@ export default function CultureHistory() {
             <Archive className="h-5 w-5 text-[#114c3a]" />
             Historique de Cultures
           </CardTitle>
-          
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-[400px]">
-            <TabsList className="grid grid-cols-2">
-              <TabsTrigger value="tableau">Tableau</TabsTrigger>
-              <TabsTrigger value="graphique">Graphique</TabsTrigger>
-            </TabsList>
-          </Tabs>
         </div>
       </CardHeader>
       <CardContent>
-        <TabsContent value="tableau" className="m-0">
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Culture</TableHead>
-                  <TableHead>Parcelle</TableHead>
-                  <TableHead>Surface (ha)</TableHead>
-                  <TableHead>Début</TableHead>
-                  <TableHead>Fin</TableHead>
-                  <TableHead>Rendement (t/ha)</TableHead>
-                  <TableHead>Statut</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {cultureHistoryData.map((row) => (
-                  <TableRow 
-                    key={row.id} 
-                    className="cursor-pointer hover:bg-gray-50"
-                    onClick={() => setSelectedCulture(selectedCulture === row.id ? null : row.id)}
-                  >
-                    <TableCell className="font-medium">
-                      <div>
-                        {row.culture}
-                        <div className="text-xs text-gray-500">{row.variete}</div>
-                      </div>
-                    </TableCell>
-                    <TableCell>{row.parcelle}</TableCell>
-                    <TableCell>{row.surface}</TableCell>
-                    <TableCell>{row.dateDebut}</TableCell>
-                    <TableCell>{row.dateFin}</TableCell>
-                    <TableCell className="font-medium text-right">{row.rendement}</TableCell>
-                    <TableCell>
-                      <Badge className={getStatutColor(row.statut)} variant="outline">
-                        {row.statut}
-                      </Badge>
-                    </TableCell>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid grid-cols-2 mb-4">
+            <TabsTrigger value="tableau">Tableau</TabsTrigger>
+            <TabsTrigger value="graphique">Graphique</TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="tableau" className="m-0">
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Culture</TableHead>
+                    <TableHead>Parcelle</TableHead>
+                    <TableHead>Surface (ha)</TableHead>
+                    <TableHead>Début</TableHead>
+                    <TableHead>Fin</TableHead>
+                    <TableHead>Rendement (t/ha)</TableHead>
+                    <TableHead>Statut</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-          <p className="text-xs text-gray-500 mt-4">
-            Cliquez sur une ligne pour voir l'évolution détaillée du rendement
-          </p>
-        </TabsContent>
-        
-        <TabsContent value="graphique" className="m-0 space-y-4">
-          {renderYieldChart()}
-        </TabsContent>
+                </TableHeader>
+                <TableBody>
+                  {cultureHistoryData.map((row) => (
+                    <TableRow 
+                      key={row.id} 
+                      className="cursor-pointer hover:bg-gray-50"
+                      onClick={() => setSelectedCulture(selectedCulture === row.id ? null : row.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div>
+                          {row.culture}
+                          <div className="text-xs text-gray-500">{row.variete}</div>
+                        </div>
+                      </TableCell>
+                      <TableCell>{row.parcelle}</TableCell>
+                      <TableCell>{row.surface}</TableCell>
+                      <TableCell>{row.dateDebut}</TableCell>
+                      <TableCell>{row.dateFin}</TableCell>
+                      <TableCell className="font-medium text-right">{row.rendement}</TableCell>
+                      <TableCell>
+                        <Badge className={getStatutColor(row.statut)} variant="outline">
+                          {row.statut}
+                        </Badge>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+            <p className="text-xs text-gray-500 mt-4">
+              Cliquez sur une ligne pour voir l'évolution détaillée du rendement
+            </p>
+          </TabsContent>
+          
+          <TabsContent value="graphique" className="m-0 space-y-4">
+            {renderYieldChart()}
+          </TabsContent>
+        </Tabs>
       </CardContent>
     </Card>
   )
