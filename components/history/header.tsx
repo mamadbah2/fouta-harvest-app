@@ -1,4 +1,3 @@
-import SidebarMenu from "@/components/layout/sidebar-menu"
 import { BurgerToggle } from "@/components/ui/burger-toggle"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -47,7 +46,6 @@ export default function Header() {
         <div className="w-8 h-8 rounded-full bg-[#114c3a] flex items-center justify-center text-white text-[8px]">
           <span>Fouta</span>
         </div>
-        <SidebarMenu />
       </div>
     </header>
   )

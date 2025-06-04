@@ -1,6 +1,5 @@
 "use client"
 
-import SidebarMenu from "@/components/layout/sidebar-menu"
 import { useAuth } from "@/contexts/auth-context"
 import { useEffect, useState } from "react"
 
@@ -46,7 +45,6 @@ export default function Header({ username, location }: HeaderProps) {
           </div>
         </div>
       </div>
-      <SidebarMenu />
     </header>
   )
 }
