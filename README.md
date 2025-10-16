@@ -5,13 +5,11 @@
 ![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-98.8%25-3178C6?logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
 
-**A comprehensive web application for managing agricultural plots in the Fouta region of Senegal**
+**A comprehensive agricultural management platform for the Fouta region of Senegal**
 
-**Bachelor's Thesis Project - Computer Science & Business Management**
-
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture) • [Getting Started](#-getting-started) • [Project Context](#-project-context)
+[Live Demo](https://fouta-harvest.vercel.app) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Documentation](#-bachelor-thesis-project)
 
 </div>
 
@@ -19,18 +17,20 @@
 
 ## 📋 About The Project
 
-**Fouta Harvest** is a complete agricultural management system developed as a bachelor's thesis project combining **Computer Science** and **Business Management**. The application enables farmers in Senegal's Fouta region to efficiently manage their agricultural plots, monitor crop health through IoT sensors, track cultivation history, and optimize their farming operations.
+**Fouta Harvest** is a complete agricultural management system developed as a **bachelor's thesis project** combining **Computer Science** and **Business Management**. The application enables farmers in Senegal's Fouta region to efficiently manage their agricultural plots, monitor crop health through IoT sensors, track cultivation history, and optimize their farming operations.
+
+This web application was successfully presented as a **final year undergraduate project** (Licence en Informatique) focused on **enterprise management** and deployed to production on **Vercel**: [fouta-harvest.vercel.app](https://fouta-harvest.vercel.app)
 
 ### 🎯 Project Objectives
 
 This thesis project demonstrates:
 
-- ✅ **Full-Stack Development**: Modern web application with Next.js and TypeScript
+- ✅ **Full-Stack Development**: Modern web application with Next.js 15 and TypeScript
 - ✅ **Business Process Management**: Complete agricultural workflow automation
 - ✅ **Data Visualization**: Real-time monitoring dashboards and analytics
 - ✅ **IoT Integration**: Sensor data management for precision agriculture
 - ✅ **User Experience**: Intuitive interface for farmers with varying technical skills
-- ✅ **Enterprise Architecture**: Scalable, maintainable codebase
+- ✅ **Enterprise Architecture**: Scalable, production-ready codebase
 
 ### 🌍 Regional Focus: Fouta, Senegal
 
@@ -46,12 +46,12 @@ The application is specifically designed for the Fouta region, covering areas su
 ### 🗺️ Plot Management (Parcelles)
 
 - **Plot Overview**: View all agricultural plots with key metrics
-  - Surface area tracking
+  - Surface area tracking (hectares)
   - Real-time status monitoring
-  - Location-based organization
+  - Location-based organization (Matam, Podor, Bakel)
   
 - **Detailed Plot Information**:
-  - Crop type and variety
+  - Crop type and variety identification
   - Planting dates and growth stages
   - IoT sensor integration (temperature, humidity, pH, growth)
   - Interactive map view with geolocation
@@ -59,10 +59,10 @@ The application is specifically designed for the Fouta region, covering areas su
 ### 📊 Real-Time Monitoring
 
 - **Environmental Data**:
-  - 🌡️ **Temperature**: Real-time temperature monitoring
-  - 💧 **Humidity**: Soil moisture levels
-  - 🌱 **Growth Rate**: Crop development tracking
-  - 🧪 **pH Levels**: Soil acidity monitoring
+  - 🌡️ **Temperature**: Real-time temperature monitoring (°C)
+  - 💧 **Humidity**: Soil moisture levels (%)
+  - 🌱 **Growth Rate**: Crop development tracking (cm/day)
+  - 🧪 **pH Levels**: Soil acidity monitoring (pH scale)
 
 - **Health Indicators**:
   - Plant health percentage
@@ -74,14 +74,14 @@ The application is specifically designed for the Fouta region, covering areas su
 - **Historical Data**:
   - Complete cultivation history by plot
   - Crop rotation tracking
-  - Yield performance over time
+  - Yield performance over time (tons/ha)
   
 - **Culture Records**:
-  - Rice (Nerica L-19, Nerica L-41)
-  - Corn (Obatampa)
-  - Millet (Souna 3)
-  - Onions (Violet de Galmi)
-  - Tomatoes (Roma VF)
+  - **Rice** (Nerica L-19, Nerica L-41)
+  - **Corn** (Obatampa)
+  - **Millet** (Souna 3)
+  - **Onions** (Violet de Galmi)
+  - **Tomatoes** (Roma VF)
 
 ### 📅 Agricultural Calendar
 
@@ -101,8 +101,9 @@ The application is specifically designed for the Fouta region, covering areas su
 
 - **Secure Login System**:
   - Cookie-based session management
-  - Protected routes with middleware
+  - Protected routes with Next.js middleware
   - User authentication persistence
+  - Auto-redirect for authenticated users
 
 ---
 
@@ -112,21 +113,18 @@ The application is specifically designed for the Fouta region, covering areas su
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| ![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?logo=next.js) | 15.2.4 | React framework with SSR |
+| ![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?logo=next.js) | 15.2.4 | React framework with App Router |
 | ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react) | 19 | UI library |
-| ![TypeScript](https://img.shields.io/badge/TypeScript-Latest-3178C6?logo=typescript) | Latest | Type-safe development (98.8%) |
-| ![Tailwind CSS](https://img.shields.io/badge/Tailwind-Latest-38B2AC?logo=tailwind-css) | Latest | Utility-first CSS (1.1%) |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-98.8%25-3178C6?logo=typescript) | Latest | Type-safe development |
+| ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38B2AC?logo=tailwind-css) | 3.x | Utility-first CSS |
 
 ### UI Component Library
 
-**Radix UI** - Accessible, unstyled component primitives:
-```json
-{
-  "accordion", "alert-dialog", "avatar", "checkbox", "dialog",
-  "dropdown-menu", "label", "popover", "select", "tabs",
-  "toast", "tooltip", "and more..."
-}
-```
+**shadcn/ui** - Accessible, customizable component system:
+- **Radix UI Primitives**: 20+ components (Dialog, Dropdown, Select, etc.)
+- **Fully Accessible**: ARIA compliant
+- **Dark Mode Ready**: Theme support built-in
+- **Customizable**: Tailwind CSS integration
 
 ### Form Management & Validation
 
@@ -148,14 +146,17 @@ The application is specifically designed for the Fouta region, covering areas su
 
 ### State Management & Utilities
 
-```json
-{
-  "js-cookie": "^3.0.5",
-  "next-themes": "^0.4.4",
-  "sonner": "^1.7.1",
-  "lucide-react": "^0.454.0"
-}
-```
+- **React Context**: Authentication state
+- **Custom Hooks**: `use-toast`, form handling
+- **js-cookie**: Session management
+- **lucide-react**: Icon library
+
+### Development Tools
+
+- **TypeScript**: Full type safety
+- **ESLint**: Code quality
+- **PostCSS**: CSS processing
+- **Tailwind Animate**: Animation utilities
 
 ---
 
@@ -186,6 +187,10 @@ fouta-harvest-app/
 │   │   └── bottom-navigation.tsx
 │   ├── login-form.tsx           # Authentication form
 │   └── ui/                      # Reusable UI components
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── dialog.tsx
+│       └── ... (20+ components)
 ├── contexts/                     # React Context providers
 │   └── auth-context.tsx         # Authentication context
 ├── hooks/                        # Custom React hooks
@@ -206,25 +211,18 @@ fouta-harvest-app/
 ```typescript
 interface Parcelle {
   id: number;
-  nom: string;                    // e.g., "Champ Riz Nord"
-  surface: string;                // e.g., "3.2 ha"
-  statut: string;                 // Growth status
-  temperature: number;            // °C
-  humidite: number;              // %
-  sante: number;                 // Health %
-  emplacement: string;           // Location in Senegal
-  typeCulture: string;           // Crop type
-  dateDebut: string;             // Start date
-  capteurs: {
-    nombre: number;
-    types: string[];
-  };
-  donnees: {
-    temperature: number;
-    humidite: number;
-    croissance: number;
-    ph: number;
-  };
+  nom: string;                  // Plot name
+  lieu: string;                 // Location (Matam, Podor, Bakel)
+  culture: string;              // Current crop
+  variete: string;              // Crop variety
+  surface: string;              // Surface area (ha)
+  dateDebut: string;           // Planting date
+  statut: string;              // Current status
+  temperature: number;          // Real-time temp (°C)
+  humidite: number;            // Humidity (%)
+  sante: number;               // Health percentage
+  croissance: number;          // Growth rate (cm/day)
+  ph: number;                  // Soil pH
 }
 ```
 
@@ -301,39 +299,68 @@ npm run build
 npm start
 ```
 
+### Deploy to Vercel
+
+The application is already deployed at: **[fouta-harvest.vercel.app](https://fouta-harvest.vercel.app)**
+
+For your own deployment:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
 ---
 
-## 🎓 Project Context
+## 🎓 Bachelor Thesis Project
 
-### Bachelor's Thesis Information
+### Academic Information
 
 **Title**: Fouta Harvest - Smart Agricultural Management Platform  
-**Field**: Computer Science & Business Management  
-**Institution**: [Your University Name]  
+**Field**: Computer Science & Business Management (Licence en Informatique)  
+**Focus**: Enterprise Management & Agricultural Technology  
 **Year**: 2024-2025  
-**Author**: Mamadou Bah [@mamadbah2](https://github.com/mamadbah2)
+**Author**: Mamadou Bah [@mamadbah2](https://github.com/mamadbah2)  
+**Deployment**: [fouta-harvest.vercel.app](https://fouta-harvest.vercel.app)
 
 ### Thesis Objectives
 
 This project demonstrates the integration of:
 
-1. **Software Engineering**:
-   - Full-stack web development
-   - Modern JavaScript/TypeScript frameworks
-   - Responsive UI/UX design
-   - Component-based architecture
+#### 1. Software Engineering
 
-2. **Business Management**:
-   - Agricultural business process optimization
-   - Resource management and planning
-   - Data-driven decision making
-   - Operational efficiency improvement
+- ✅ Full-stack web development with Next.js 15
+- ✅ Modern JavaScript/TypeScript frameworks
+- ✅ Responsive UI/UX design
+- ✅ Component-based architecture
+- ✅ Production deployment on Vercel
 
-3. **Technology Innovation**:
-   - IoT sensor integration concepts
-   - Real-time data visualization
-   - Geolocation services
-   - Cloud-ready architecture
+#### 2. Business Management
+
+- ✅ Agricultural business process optimization
+- ✅ Resource management and planning
+- ✅ Data-driven decision making
+- ✅ Operational efficiency improvement
+- ✅ Crop yield tracking and analytics
+
+#### 3. Technology Innovation
+
+- ✅ IoT sensor integration concepts
+- ✅ Real-time data visualization
+- ✅ Geolocation services
+- ✅ Cloud-ready architecture
+- ✅ Modern web standards (React 19, Next.js 15)
+
+### Key Features Demonstrating Business Management
+
+1. **Plot Management**: Centralized tracking of all agricultural assets
+2. **Historical Analysis**: Performance tracking for informed decisions
+3. **Calendar Planning**: Scheduling and resource allocation
+4. **Sensor Monitoring**: Data-driven crop management
+5. **Yield Analytics**: ROI and productivity measurement
 
 ---
 
@@ -351,11 +378,10 @@ This project demonstrates the integration of:
 
 ### IoT Sensor Types
 
-- 🌡️ **Temperature Sensors**: Monitor ambient and soil temperature
-- 💧 **Humidity Sensors**: Track soil moisture levels
-- 🧪 **pH Sensors**: Measure soil acidity/alkalinity
-- 🌱 **Growth Sensors**: Monitor plant development
-- ☀️ **Light Sensors**: Track sunlight exposure
+- **Temperature Sensors**: Ambient and soil temperature
+- **Humidity Sensors**: Soil moisture monitoring
+- **pH Sensors**: Soil acidity measurement
+- **Growth Sensors**: Plant height and development
 
 ---
 
@@ -366,7 +392,7 @@ This project demonstrates the integration of:
 1. **Plot List View**:
    - Overview of all agricultural plots
    - Quick status indicators
-   - Temperature, humidity, and health metrics
+   - Temperature, humidity, and health metrics at a glance
 
 2. **Plot Detail View**:
    - Comprehensive plot information
@@ -376,6 +402,7 @@ This project demonstrates the integration of:
 3. **Map View**:
    - Geolocation of all plots
    - Regional context (Matam, Podor, Bakel)
+   - Interactive navigation
 
 4. **History View**:
    - Complete cultivation records
@@ -389,11 +416,11 @@ This project demonstrates the integration of:
 
 ### Color Scheme
 
-The application uses a nature-inspired color palette:
+Nature-inspired palette for agricultural context:
 
 ```css
-Primary Green: #114c3a    /* Main brand color */
-Light Green: #f0f9f5      /* Background accents */
+Primary Green: #114c3a    /* Main brand color - represents agriculture */
+Light Green: #f0f9f5      /* Background accents - fresh, clean */
 Hover Green: #0d3c2d      /* Interactive elements */
 ```
 
@@ -411,10 +438,23 @@ password: "password"
 
 ### Security Features
 
-- **Cookie-based sessions**: Secure user authentication
-- **Protected routes**: Middleware-based route protection
-- **Auto-redirect**: Authenticated users redirected from login
-- **Session persistence**: User state maintained across sessions
+- **Cookie-based sessions**: Secure user authentication with `js-cookie`
+- **Protected routes**: Next.js middleware-based route protection
+- **Auto-redirect**: Authenticated users automatically redirected from login
+- **Session persistence**: User state maintained across browser sessions
+
+### Middleware Protection
+
+```typescript
+// Protected routes require authentication
+- /parcelles
+- /history
+- /calendar
+
+// Public routes
+- /login
+- / (redirects to /parcelles if authenticated)
+```
 
 ---
 
@@ -422,7 +462,7 @@ password: "password"
 
 ### Charts & Analytics
 
-The application includes various data visualizations:
+The application includes various data visualizations using **Recharts**:
 
 - **Yield Performance Charts**: Track harvest quantities over time
 - **Growth Progression**: Visualize crop development stages
@@ -431,10 +471,10 @@ The application includes various data visualizations:
 
 ### Dashboard Metrics
 
-- Total surface area under cultivation
-- Number of active plots
-- Average crop health percentage
-- Upcoming harvest schedule
+- **Total Surface Area**: Sum of all plots under cultivation
+- **Active Plots**: Number of currently active parcels
+- **Average Crop Health**: Overall health percentage
+- **Upcoming Harvests**: Schedule of expected harvest dates
 
 ---
 
@@ -452,6 +492,8 @@ The application includes various data visualizations:
 - [ ] 🌦️ Weather API integration
 - [ ] 📱 Mobile sensor data upload
 - [ ] 🗺️ Satellite imagery integration
+- [ ] 📈 Predictive yield modeling
+- [ ] 🔄 Multi-farm management
 
 ---
 
@@ -460,16 +502,24 @@ The application includes various data visualizations:
 ### Component Library
 
 Built with **shadcn/ui** components:
-- Fully accessible (ARIA compliant)
-- Customizable with Tailwind CSS
-- Dark mode ready
-- Responsive by default
+- ✅ Fully accessible (ARIA compliant)
+- ✅ Customizable with Tailwind CSS
+- ✅ Dark mode ready
+- ✅ Responsive by default
+- ✅ TypeScript support
 
 ### Typography
 
-- **Headings**: Bold, hierarchical
-- **Body Text**: Clear, readable
+- **Headings**: Bold, hierarchical structure
+- **Body Text**: Clear, readable font sizes
 - **Data Display**: Monospaced for numbers
+- **Forms**: Clear labels and validation messages
+
+### Responsive Design
+
+- **Mobile First**: Optimized for small screens
+- **Tablet**: Enhanced layouts for medium screens
+- **Desktop**: Full-featured dashboard experience
 
 ---
 
@@ -487,15 +537,31 @@ This is an academic project, but suggestions and feedback are welcome!
 
 ## 📚 Learning Outcomes
 
-This project demonstrates proficiency in:
+This bachelor's thesis project demonstrates proficiency in:
 
-- ✅ **Modern Web Development**: Next.js, React 19, TypeScript
+### Technical Skills
+
+- ✅ **Modern Web Development**: Next.js 15, React 19, TypeScript
 - ✅ **UI/UX Design**: Responsive, accessible interfaces
 - ✅ **State Management**: React Context, custom hooks
 - ✅ **Data Modeling**: Complex business logic implementation
 - ✅ **Authentication**: Secure session management
+- ✅ **Deployment**: Production deployment on Vercel
+
+### Business Skills
+
 - ✅ **Business Analysis**: Agricultural domain modeling
+- ✅ **Process Optimization**: Workflow automation
+- ✅ **Resource Management**: Plot and crop tracking
+- ✅ **Data Analytics**: Performance measurement and reporting
 - ✅ **Project Management**: Full development lifecycle
+
+### Academic Achievements
+
+- ✅ Successfully presented as undergraduate thesis project
+- ✅ Deployed to production (Vercel)
+- ✅ Demonstrated real-world application of computer science
+- ✅ Integrated technology with business management principles
 
 ---
 
@@ -507,32 +573,35 @@ This project is developed for educational purposes as part of a bachelor's thesi
 
 ## 📧 Contact
 
-**Mamadou Bah**  
-GitHub: [@mamadbah2](https://github.com/mamadbah2)
+**Mamadou Bah** - [@mamadbah2](https://github.com/mamadbah2)
 
-Project Link: [https://github.com/mamadbah2/fouta-harvest-app](https://github.com/mamadbah2/fouta-harvest-app)
+**Project Links:**
+- GitHub Repository: [https://github.com/mamadbah2/fouta-harvest-app](https://github.com/mamadbah2/fouta-harvest-app)
+- Live Application: [https://fouta-harvest.vercel.app](https://fouta-harvest.vercel.app)
 
 ---
 
 ## 🙏 Acknowledgments
 
+- **Academic Advisors**: For guidance throughout the thesis process
 - **Fouta Region Farmers**: For domain expertise and requirements
-- **Academic Advisors**: For guidance and support
-- **Open Source Community**: For amazing tools and libraries
-- **Senegalese Agricultural Research**: For crop data and best practices
+- **Next.js Team**: For the powerful React framework
+- **Vercel**: For seamless deployment platform
+- **shadcn/ui**: For the excellent component library
+- **Open Source Community**: For the amazing tools and libraries
 
 ---
 
 <div align="center">
 
-**🎓 Bachelor's Thesis Project - Computer Science & Business Management 🎓**
+**🎓 Developed as a Bachelor's Thesis Project in Computer Science & Business Management 🎓**
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?logo=next.js&logoColor=white&style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-98.8%25-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
-![Agriculture](https://img.shields.io/badge/Agriculture-Senegal-success?style=for-the-badge)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel&logoColor=white&style=for-the-badge)
 
-**🌾 Empowering Farmers in Senegal with Technology 🌾**
+**🌾 Empowering Senegalese Agriculture with Technology 🌾**
 
-**⭐ If you find this project interesting, please give it a star! ⭐**
+**⭐ If this project helped you, please give it a star! ⭐**
 
 </div>
